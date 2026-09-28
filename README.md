@@ -10,6 +10,8 @@ A client locks payment in a smart contract before the work starts. The freelance
 
 No platform wallet, no admin key, no fee. Runs on **Base Sepolia** (testnet).
 
+**Contract:** [`0xe3a8619cE87406E4bB590Ca9FC491b797A40CaDb`](https://sepolia.basescan.org/address/0xe3a8619cE87406E4bB590Ca9FC491b797A40CaDb) on Base Sepolia
+
 ## Repository layout
 
 ```
