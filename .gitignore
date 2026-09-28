@@ -1,0 +1,9 @@
+# foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+
+# local tooling / agent notes
+**/CLAUDE.md
+**/AGENTS.md
+.hallmark/

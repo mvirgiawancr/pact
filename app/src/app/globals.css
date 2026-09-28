@@ -1,0 +1,232 @@
+/* Hallmark · genre: atmospheric · macrostructure: Split Studio · theme: Lumen (Night Foundry) · enrichment: Tier B hand-built SVG apparatus · nav: N9 edge-aligned · footer: Ft5 statement
+ * tone: technical · anchor hue: 50 (molten brass) on 265 violet night
+ * Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V5
+ */
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --color-paper: oklch(13% 0.014 265);
+  --color-paper-2: oklch(17% 0.016 265);
+  --color-paper-3: oklch(22% 0.018 263);
+  --color-rule: oklch(30% 0.018 265);
+  --color-rule-2: oklch(42% 0.02 263);
+  --color-muted: oklch(66% 0.016 263);
+  --color-neutral: oklch(74% 0.014 263);
+  --color-ink-2: oklch(84% 0.01 262);
+  --color-ink: oklch(96% 0.006 262);
+  --color-accent: oklch(76% 0.17 50);
+  --color-accent-2: oklch(68% 0.16 18);
+  --color-accent-ink: oklch(13% 0.014 265);
+  --color-focus: oklch(76% 0.17 50);
+  --color-glow: oklch(80% 0.16 50 / 0.42);
+  --color-glow-2: oklch(80% 0.16 50 / 0.12);
+  --color-ok: oklch(74% 0.13 155);
+  --rule-blueprint: oklch(96% 0.006 262 / 0.04);
+
+  --font-display: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-body: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-label: var(--font-jetbrains), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+  --dur-pulse: 4s;
+
+  --radius-control: 999px;
+  --radius-card: 14px;
+  --shadow-card: 0 24px 60px -28px oklch(0% 0 0 / 0.55);
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-paper-2: var(--color-paper-2);
+  --color-paper-3: var(--color-paper-3);
+  --color-rule: var(--color-rule);
+  --color-rule-2: var(--color-rule-2);
+  --color-muted: var(--color-muted);
+  --color-neutral: var(--color-neutral);
+  --color-ink-2: var(--color-ink-2);
+  --color-ink: var(--color-ink);
+  --color-accent: var(--color-accent);
+  --color-accent-2: var(--color-accent-2);
+  --color-accent-ink: var(--color-accent-ink);
+  --color-ok: var(--color-ok);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-label);
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+body {
+  background: var(--color-paper);
+  color: var(--color-ink-2);
+  font-family: var(--font-body);
+  /* blueprint grid + one fixed brass wash behind the apparatus */
+  background-image:
+    radial-gradient(60rem 40rem at 78% 18%, var(--color-glow-2), transparent 70%),
+    linear-gradient(var(--rule-blueprint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule-blueprint) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--color-ink);
+  letter-spacing: -0.032em;
+  line-height: 1.02;
+  text-transform: lowercase;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+/* verb landmark: accent colour + drawn underline, never italics */
+.verb {
+  color: var(--color-accent);
+  background: linear-gradient(var(--color-accent), var(--color-accent)) no-repeat 0 94% / 100% 0.06em;
+}
+
+.label {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+.num {
+  font-family: var(--font-label);
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.card {
+  background: var(--color-paper-2);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.field {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-rule);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font: 400 0.95rem var(--font-body);
+  transition: border-color var(--dur-micro) var(--ease-out);
+}
+.field::placeholder {
+  color: var(--color-muted);
+}
+.field:hover {
+  border-color: var(--color-rule-2);
+}
+.field:focus-visible {
+  outline-offset: 1px;
+  border-color: var(--color-accent);
+}
+.field[aria-invalid="true"] {
+  border-color: var(--color-accent-2);
+}
+.field:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0 1.25rem;
+  border-radius: var(--radius-control);
+  font: 500 0.95rem/1 var(--font-body);
+  text-transform: lowercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-micro) var(--ease-out),
+    border-color var(--dur-micro) var(--ease-out),
+    transform var(--dur-micro) var(--ease-out);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  border: 1px solid transparent;
+}
+.btn-primary:hover:not(:disabled) {
+  background: oklch(80% 0.16 50);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-rule-2);
+}
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--color-accent);
+}
+
+.link {
+  color: var(--color-ink);
+  background: linear-gradient(var(--color-accent), var(--color-accent)) no-repeat 0 100% / 0 1px;
+  transition: background-size var(--dur-short) var(--ease-out);
+}
+.link:hover {
+  background-size: 100% 1px;
+}
+
+/* apparatus: the vault emits while funds are locked */
+@keyframes emit {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+.emit {
+  animation: emit var(--dur-pulse) var(--ease-in-out) infinite;
+}
+@keyframes flow {
+  to { stroke-dashoffset: -24; }
+}
+.flow {
+  stroke-dasharray: 4 8;
+  animation: flow 1.6s linear infinite;
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  animation: fade-in 700ms var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emit,
+  .flow,
+  .fade-in {
+    animation: none;
+  }
+}
