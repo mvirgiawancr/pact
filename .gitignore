@@ -7,3 +7,7 @@ contracts/broadcast/
 **/CLAUDE.md
 **/AGENTS.md
 .hallmark/
+
+# portfolio assets (kept locally, not part of the app)
+launch-video/
+contra/
